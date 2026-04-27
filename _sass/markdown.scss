@@ -1,0 +1,56 @@
+// Sub-page markdown content (Privacy, Terms, Support).
+// Inherits font + base colors from base.scss.
+
+.markdown-body {
+	color: var(--text-2);
+	font-size: 1.6rem;
+	line-height: 1.6;
+
+	> * + * {
+		margin-top: 1.2em;
+	}
+
+	h1, h2 {
+		color: var(--text-1);
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		line-height: 1.2;
+		padding-bottom: 0.3em;
+		border-bottom: 1px solid var(--border);
+	}
+
+	h1 {
+		font-size: 2.8rem;
+		margin-top: 1.6em;
+	}
+
+	h2 {
+		font-size: 2rem;
+		margin-top: 1.8em;
+	}
+
+	p {
+		color: var(--text-2);
+	}
+
+	strong {
+		color: var(--text-1);
+		font-weight: 700;
+	}
+
+	a {
+		color: var(--accent);
+		text-decoration: none;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+
+	ul {
+		padding-left: 1.6em;
+	}
+
+	li + li {
+		margin-top: 0.4em;
+	}
+}

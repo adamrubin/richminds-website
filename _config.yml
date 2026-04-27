@@ -10,6 +10,8 @@ appstore_link   :   # leave empty until live
 # Hero rotating screenshots — drop more PNGs into assets/screenshot/ and add the path here.
 screenshots:
   - assets/screenshot/screenshot-1.png
+  - assets/screenshot/screenshot-2.png
+  - assets/screenshot/screenshot-3.png
 
 # Jekyll plumbing
 sass:
