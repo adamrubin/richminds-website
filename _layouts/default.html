@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+{% include head.html %}
+
+<body class="homeBody">
+	{% include header.html %}
+
+	<main class="homeMain">
+		<section class="hero">
+			<div class="heroGlow" aria-hidden="true"></div>
+			<div class="heroInner">
+				<div class="heroCopy">
+					<h1 class="heroHeadline">Predict the story.</h1>
+					<p class="heroSubhead">A new story each season. Every prediction is a bet on where it&rsquo;s headed.</p>
+					<div class="heroCta">
+						<a class="ctaPill" href="{% if site.appstore_link %}{{ site.appstore_link }}{% else %}#{% endif %}">
+							<svg class="ctaPillIcon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+								<path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+							</svg>
+							<span>Download on the App Store</span>
+						</a>
+					</div>
+				</div>
+
+				<div class="phoneWrap">
+					<div class="phone">
+						<div class="phoneScreen">
+							<div class="screenshotStack" id="screenshotStack">
+								{% for shot in site.screenshots %}
+									<img class="screenshot{% if forloop.first %} is-active{% endif %}"
+									     src="{{ shot | relative_url }}"
+									     alt="App screenshot {{ forloop.index }}"
+									     {% unless forloop.first %}loading="lazy"{% endunless %}>
+								{% endfor %}
+							</div>
+						</div>
+						<div class="phoneSideBtn phoneSideBtn--leftA" aria-hidden="true"></div>
+						<div class="phoneSideBtn phoneSideBtn--leftB" aria-hidden="true"></div>
+						<div class="phoneSideBtn phoneSideBtn--leftC" aria-hidden="true"></div>
+						<div class="phoneSideBtn phoneSideBtn--right" aria-hidden="true"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="how-it-works" class="howSection">
+			<div class="howInner">
+				<div class="sectionHeader">
+					<p class="sectionEyebrow">How it works</p>
+					<h2 class="sectionHeadline">From outsider to insider in three moves.</h2>
+				</div>
+
+				<div class="howSteps">
+					<div class="howStepLine" aria-hidden="true"></div>
+
+					<div class="howStep">
+						<div class="howStepNumber">01</div>
+						<h3 class="howStepHeading">Follow the story</h3>
+						<p class="howStepBody">Every season: a new company, a new cast, a new story. For 30 days, the CEO, the CFO, rival executives, and the analysts covering them message you directly &mdash; venting, leaking, gloating, sometimes lying. You&rsquo;re not reading about the story. You&rsquo;re inside it.</p>
+					</div>
+
+					<div class="howStep">
+						<div class="howStepNumber">02</div>
+						<h3 class="howStepHeading">Call the move</h3>
+						<p class="howStepBody">The cast doesn&rsquo;t just tell you the story &mdash; they ask you where it&rsquo;s going. Will earnings hit? Does the CEO hold her composure? Who&rsquo;s bluffing and who&rsquo;s about to break? Predictions arrive mid-conversation, posed by the same character who just filled you in. Make your call and wait for the story to prove you right.</p>
+					</div>
+
+					<div class="howStep">
+						<div class="howStepNumber">03</div>
+						<h3 class="howStepHeading">Make your name</h3>
+						<p class="howStepBody">Every call you nail compounds. Every one you blow costs you. At season&rsquo;s end, one leaderboard remembers who saw it coming and who got played. The money resets. The reputation doesn&rsquo;t.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	{% include footer.html %}
+
+	<script>
+		(function () {
+			var stack = document.getElementById('screenshotStack');
+			if (!stack) return;
+			var shots = stack.querySelectorAll('.screenshot');
+			if (shots.length < 2) return;
+			var idx = 0;
+			setInterval(function () {
+				shots[idx].classList.remove('is-active');
+				idx = (idx + 1) % shots.length;
+				shots[idx].classList.add('is-active');
+			}, 4000);
+		})();
+
+		(function () {
+			var nav = document.getElementById('siteNav');
+			if (!nav) return;
+			var apply = function () {
+				if (window.scrollY > 8) {
+					nav.classList.add('is-scrolled');
+				} else {
+					nav.classList.remove('is-scrolled');
+				}
+			};
+			apply();
+			window.addEventListener('scroll', apply, { passive: true });
+		})();
+	</script>
+</body>
+</html>

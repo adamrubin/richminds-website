@@ -1,0 +1,13 @@
+<nav class="siteNav" id="siteNav">
+	<a class="brand" href="{{ '/' | relative_url }}" target="_self">
+		<img class="brandIcon" src="{{ site.app_icon | relative_url }}" alt="">
+		<span class="brandWordmark">{{ site.app_name }}</span>
+	</a>
+	<div class="navLinks">
+		{% if page.url == '/' %}
+			<a class="navLink" href="#how-it-works">How it works</a>
+		{% else %}
+			<a class="navLink" href="{{ '/#how-it-works' | relative_url }}" target="_self">How it works</a>
+		{% endif %}
+	</div>
+</nav>

@@ -1,0 +1,14 @@
+<footer class="siteFooter">
+	<div class="footerInner">
+		<a class="brand" href="{{ '/' | relative_url }}" target="_self">
+			<img class="brandIcon brandIcon--sm" src="{{ site.app_icon | relative_url }}" alt="">
+			<span class="brandWordmark brandWordmark--sm">{{ site.app_name }}</span>
+		</a>
+		<p class="footerCopyright">&copy; {{ 'now' | date: '%Y' }} {{ site.app_name }}. All rights reserved.</p>
+		<div class="footerLinks">
+			<a class="footerLink" href="{{ '/privacypolicy/' | relative_url }}" target="_self">Privacy</a>
+			<a class="footerLink" href="{{ '/terms/' | relative_url }}" target="_self">Terms</a>
+			<a class="footerLink" href="{{ '/support/' | relative_url }}" target="_self">Support</a>
+		</div>
+	</div>
+</footer>
